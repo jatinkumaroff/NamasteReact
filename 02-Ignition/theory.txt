@@ -1,2 +1,8 @@
 PUSHING TO GITHUB:
-    
+    - create repo on GITHUB
+    - create local git repo
+    - select main branch => git branch -M main
+    - git add .
+    - git commit -m "message"
+    - git remote add origin https://github.com/jatinkumaroff/NamasteReact.git 
+    - 
