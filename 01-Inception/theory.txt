@@ -1,0 +1,62 @@
+creating and element and addding it to another element using js:
+     const heading=document.createElement("h1")
+            heading.innerHTML="hello world from js"
+            //in above 2 lines , element is just created
+            //we will have to put it inside the root div
+
+            const root=document.getElementById("root");  //root variable is now reference to the div tag
+            root.appendChild(heading)   // =>append means adding without clearing whats before
+            
+--------------------------------------------------------------------------------------------------
+                                  react is a JavaScript Library
+Using react in project:
+    1. using s=cdn import script links
+    2.      
+
+
+
+----------------------------------------------------------------------------------------------------
+React usage:
+    two parts of react:
+        -core react  =>createElement   ("tag",{object}, "content" )
+        -react dom   =>createRoot      (element reference)
+    after creating element and  root, to add/append element inside the root, we use:
+
+    root.render("element")
+
+------------------------------------------------------------------------------------------------------
+JavaScript File for React::
+    ALL of above is written inside html code in script tags, we can use js also by:
+
+    -create App.js => shift all code of reatc there
+    - in a script tag: <script src="./App.js" ></script>
+
+    # => id 
+    . => class
+
+-------------------------------------------------------------------------------------------------------
+
+creating multi-level structure in react:
+    create parent element and give respective id
+    creating a structur like:
+    <div id="parent">
+        <div id="child">
+            <h1>I AM GRANDCHILD</h1>
+        </div>
+    </div>
+
+createElement in child args of parent => and GRANDCHILDin child args of child  
+
+-------------------------------------------------------------------------------------------------------------
+Creating Siblings:
+ 
+ in the child args=> pass Array [] of childs asa before
+
+------------------------------------------------------------------------------------------------------------
+
+    If there's something already present inside the root element, it will be replaced by root.render(...)
+
+    anything before and after root stays same
+
+    react is a library and not a framework as it can be applied to a very small portion too, 
+    not required to create whole thing/app using react
