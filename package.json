@@ -1,0 +1,26 @@
+{
+  "name": "namastereact",
+  "version": "1.0.0",
+  "description": "frontend - namaste react",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Jatin Kumar",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jatinkumaroff/NamasteReact.git"
+  },
+  "keywords": [
+    "react",
+    "course"
+  ],
+  "bugs": {
+    "url": "https://github.com/jatinkumaroff/NamasteReact/issues"
+  },
+  "homepage": "https://github.com/jatinkumaroff/NamasteReact#readme",
+  "devDependencies": {
+    "parcel": "^2.16.3"
+  }
+}
