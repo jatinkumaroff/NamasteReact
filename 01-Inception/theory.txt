@@ -10,8 +10,8 @@ creating and element and addding it to another element using js:
 --------------------------------------------------------------------------------------------------
                                   react is a JavaScript Library
 Using react in project:
-    1. using s=cdn import script links
-    2.      
+    1. using s=cdn import script links  => NOT PREFERED WAY , COSTLY OPERATION
+    2. via npm
 
 
 

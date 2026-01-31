@@ -1,12 +1,5 @@
-/*
-creating a multilevel structur like:
-    <div id="parent">
-        <div id="child">
-            <h1>I AM GRANDCHILD</h1>
-        </div>
-    </div>
-
-*/
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 const parent=React.createElement(
     "div",                                              //parent tag
@@ -17,36 +10,7 @@ const parent=React.createElement(
         React.createElement(
             "h1",                                       //grandchild tag
             {id:"grandchild"},
-            "I am an H1 tag")
-    )
-
-)
-
-
-/*
-creating a sibling structure like:
-    <div id="parent">
-        <div id="child">
-            <h1>I AM GRANDCHILD 1</h1>
-            <h1>I AM GRANDCHILD 2</h1>
-        </div>
-    </div>
-
-*/
-
-//convert child args to array and pass asa many children as you want:
-
-
-const sibParent=React.createElement(
-    "div",                                              //parent tag
-    {id:"parent"}, 
-    React.createElement(
-        "div",                                          //child tag
-        {id:"child"}, 
-    [   
-        React.createElement("h1",{id:"grandchild1"},"I am an H1 tag , sibling 1"),       //sibling 1
-        React.createElement("h2",{id:"grandchild2"},"I am an H2 tag , sibling 2")        //sibling 2
-    ]
+            "I am an H1 tag insdie the react's app.js")
     )
 
 )
@@ -60,13 +24,7 @@ const sibParent=React.createElement(
 
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//this heading is a JS object (it is react element which is nothing but js object )
-const heading = React.createElement(
-    "h1",                                   //tag
-    {id:"heading" , xyz:"abc"},             //attributes
-    "hello from react!"                     //children
-); 
+
 
 
 
@@ -77,5 +35,5 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 
 /*Add content in root*/
-root.render(sibParent);           //redner method takes js obj => convert it into tag and put int root
-console.log(sibParent);
+root.render(parent);           //redner method takes js obj => convert it into tag and put int root
+console.log(parent);

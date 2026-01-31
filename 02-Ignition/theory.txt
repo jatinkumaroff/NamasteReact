@@ -1,25 +1,39 @@
-PUSHING TO GITHUB:
-    - create repo on GITHUB
-    - create local git repo
-    - select main branch => git branch -M main
-    - git add .
-    - git commit -m "message"
-    - git remote add origin https://github.com/jatinkumaroff/NamasteReact.git   
-
-
-Most imp package in our app is a bundler , like: vite, parcel, webpack  etc
-    -packages apps to be able to push to production
-    -like: create-react-app uses webpack
-    -we'll be using parcel
-
-Package Versioning:
-      - two ways, and differ in updation on a new version:
-          -"parcel": "^2.16.3"    (^ is caret, it will automatically do minor updates)
-          -"parcel": "~2.16.3"    (~ is tilde, it will automatically do major updates too)
-
-      - package.json vs package-lock.json:
-          -.json remains exatc same, even on updation of version              :::> ^1.0.0
-          -lock.json changes to new version after updating the library        :::>  1.0.0 - no tilde or caret
-
-      - dependencies of dependencies of dependencies ... => "transitive dependencies"
-      
+GIT,NODE ,VERSIONS
+ PUSHING TO GITHUB:
+     - create repo on GITHUB
+     - create local git repo
+     - select main branch => git branch -M main
+     - git add .
+     - git commit -m "message"
+     - git remote add origin https://github.com/jatinkumaroff/NamasteReact.git   
+ 
+ 
+ Most imp package in our app is a bundler , like: vite, parcel, webpack  etc
+     -packages apps to be able to push to production
+     -like: create-react-app uses webpack
+     -we'll be using parcel
+ 
+ Package Versioning:
+       - two ways, and differ in updation on a new version:
+           -"parcel": "^2.16.3"    (^ is caret, it will automatically do minor updates)
+           -"parcel": "~2.16.3"    (~ is tilde, it will automatically do major updates too)
+ 
+       - package.json vs package-lock.json:
+           -.json remains exatc same, even on updation of version              :::> ^1.0.0
+           -lock.json changes to new version after updating the library        :::>  1.0.0 - no tilde or caret
+ 
+       - dependencies of dependencies of dependencies ... => "transitive dependencies"
+ 
+===================================================================================================================
+1hr 5m IGNITING NPX create
+ 
+ npx parcel index.html => creates server for us
+ npx- node package execute
+ push dist and parcel-cache to gitignore, these will be rebuilt
+ 
+ Making app compatible for old versions of browser: useing npm's browserlist
+    - add the below in package.json file
+    "browserslist":[
+        "last 3 Chrome version",
+        "last 5 Firefox version"
+    ]
