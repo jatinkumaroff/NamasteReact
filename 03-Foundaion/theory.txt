@@ -23,5 +23,24 @@ JSX:
 -------------------------------------------------------------------------------------
 React Components:
   type: 
-    -class based: old 
+    -class based: old and not used now
     - functional: new
+
+  functional component=> 
+      - js function
+      - return jsx
+      - name start with capital letter
+      - written using arrow fxn
+      - in render, we need to do like: root.render(<ComponentName/>)
+
+  Component Composition:
+   const HeadingComponent=() => (
+    <div>
+        <Component1/>
+        <Component2/>
+    </div>
+   );  
+
+
+   Js in JSX/component:
+    in a component if we use {....} we can directly write js
