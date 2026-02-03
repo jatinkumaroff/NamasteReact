@@ -1,0 +1,27 @@
+NPM SCRIPTS:
+    in scripts in package.json:
+    - "start" : "parcel index.html",                => development mode
+      "build" : "parcel build index.html"           => production mode
+      we can use just "npm start" w/o using run, but just for "start" cmd!
+
+    now we just write : npm run start /// npm run build
+
+------------------------------------------------------------------------------------
+REACT ELEMENT:
+  react element that we create using React.createElement is => a Js object
+  when we render this element using react-dom , it becomes => HTML element 
+
+------------------------------------------------------------------------------------
+JSX:
+  const jsxHeading= <h1>this is JSX</h1>;
+  JSX isnot HTML IN JS, its diff from react and html
+  here jsxHeading-> react object (jsxHeading===heading)
+  JSX is NOT A VALID JavaScript , its parcel(babel to pe specific) transpiles it
+  that is jsx ===transpiled===> React.createElement - rest same
+  in html - class="" :::::: in jsx - className=""
+
+-------------------------------------------------------------------------------------
+React Components:
+  type: 
+    -class based: old 
+    - functional: new
