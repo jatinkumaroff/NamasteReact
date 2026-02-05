@@ -40,6 +40,14 @@ React Components:
         <Component2/>
     </div>
    );  
+   const HeadingComponent=() =>(
+    <div>
+     {98+89}
+     <Component1/>              {/* calling simply using tags*/}
+     <Component2/>              {/* calling simply using tags*/}
+     {Component3()}             {/*calling using a function*/}
+     </div>
+   );   
 
 
    Js in JSX/component:

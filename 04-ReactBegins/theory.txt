@@ -1,0 +1,120 @@
+INCOMPLETE -> DO AGAIN FROM 1:30 HRS!!!
+
+
+start the project from this video: SWIGGY
+
+DESIGNING COMES FIRST:
+    HEADER:
+        LOGO(left)
+        LINKS(Right):
+          HOME 
+          ABOUT 
+          CART
+    BODY:
+        search bar  -  search button
+        restraunt cards
+            -image
+            -title
+            -ratings
+            -price
+    FOOTER:
+        copyright
+        links
+
+COMPONENTS:=>   
+    HEADER ->  Logo , Nav Items(home, about)
+    BODY ->  Search , Card Container(inside it restraunt cards)
+    FOOTER ->  copyright , Link, Contact, Address
+
+----------------------------------------------------------------------------------------------------------------------
+
+1. APP layout component - top level component
+    WE'LL BUILD, outside it and will use these components in  it:
+        HEADER, FOOTER , BODY
+
+        - HEADER:
+                we'll have logo and nav items inside it
+                logo on left and nav-items on right
+
+        -BODY:
+                -search bar
+                -restraunt-container   
+                    * multiple restraunt cards => we will build a container for it for multiple cards
+                        =image
+                        =name of res 
+                        =star ratings
+                        =eta
+
+
+
+
+----------------------------------------------------------------------
+CSS :
+ To make list items horizontal:
+    .nav-items>ul {
+        display:flex
+    }
+ To give spacing bw list items(li)
+    .nav-items>ul>li{
+        margin:10px
+        padding:10px
+    }
+ To place 2 divs at leftmost and rightmost posn:
+    .header{
+       justify-content: space-between
+    }
+ Remove dots from list:
+    .nav-items{
+        list-style-type:none
+      }
+ Giving border:
+    .header{
+        border: 1px solid black
+    }
+ Do something only on hovering:
+ .className:hover{
+    //properties
+ }
+
+
+
+--------------------------------------------------------------------------------------------------
+RESUING THE SAME COMPONETN IS HARD CODING, TO MAKE IT DYNAMIC:
+ USsing "PROPS" (properties) => passign data into a js function
+    component and props are essentialy function and args in js respectively
+
+ Give data inside the tag like:
+    <COMPONENT 
+    resName="haha"
+    resLocation="nana"                                                  => wrapped inside object "props"
+    />
+
+    now all the data from this is wrapped inside an object and in funcitn:
+     const COMPONENT=(props)=>{
+        <h1> THIS IS COMING FROM THE PORPS: {props.resName} </h1>
+     }
+
+    now data from backend comes in json, we'll need to use json
+
+    PICK data by looping over it using a map and then dynamically load all the things
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ==================================================
+    DIY: PICK DATA FROM SWIGGY/ZOMATO AND THEN MAEK DYNAMIC CARDS FOR MULTIPLE RESTRAUNTS
