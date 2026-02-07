@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import resData from "./liveData";
 //Header
 const Header = () => {
   return (
@@ -24,19 +24,23 @@ const Header = () => {
 };
 
 //Restraunt-card component:
-const RestrauntCard = (props) => {
-  console.log(props);
-  console.log(props.resName);
+const RestrauntCard = ({resData}) => {
+  const {
+    name,
+    resId,
+    image: { urlWithParams },
+    rating: { aggregate_rating },
+    cft: { text: cost_for_two_ctr },
+    cuisine,
+  } = resData?.info;
+
   return (
     <div className="res-card">
-      <img
-        className="res-img"
-        src="https://media.gettyimages.com/id/1428409514/photo/a-male-chef-serving-a-fine-dining-dish-in-a-restaurant.jpg?s=612x612&w=0&k=20&c=OK0lACbKto6oiOjg5xgUxY2fPS8CtT3fX9HhK2ntQ-M="
-        alt="res-main-img"
-      />
-      <h3 className="name">{props.resName}</h3>
+      <img className="res-img" src={urlWithParams} alt="res-main-img" />
+      <h3 className="name">{name}</h3>
       <h4>continental , indian </h4>
-      <h4>4.4 stars</h4>
+      <h4>{aggregate_rating}</h4>
+      <h4>{cost_for_two_ctr}</h4>
       <h4>38 minutes</h4>
     </div>
   );
@@ -48,8 +52,10 @@ const Body = () => {
     <div className="body">
       <div className="search">SEARCH bar will come here</div>
       <div className="res-container">
-        {" "}
-        <RestrauntCard resName="from props" />
+
+       {resData.map((restraunt)=>(
+        <RestrauntCard key={restraunt.info.resId} resData={restraunt}/>
+       ))}
       </div>
     </div>
   );

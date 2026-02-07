@@ -1,0 +1,37 @@
+HOOKS IN REACT
+
+    make seperate file for eveery component
+    component files are named exactly as component name 
+
+    exporting a component from the file we are using:
+        export default ComponentName;
+
+    do not keep hard-coded links/strings in component files
+    create anotehr file called utils for it
+
+    export/import type:
+        default:
+            import - import name from "path"
+            export - export default name;
+
+        named:
+            import - import {name1} from "path"
+            export - export const name1 = ...
+                     export const name2 = ...
+
+        what i use(from node)
+            import - const {name1} - reuqie("path)
+            export - module.exports = {name1, name2};
+
+----------------------------------------------------------------------------------------------------------------
+CLICK- HANDLER:
+    now we'll add a button to search top rated res(4 star +) with functionality to filte
+
+    - create a button for it first
+    - add EVEN HANDLER -> ON CLICK:
+        attribute: 
+            onClick={
+                ()=>{
+                    console.log("button clicked")
+                }
+            }
