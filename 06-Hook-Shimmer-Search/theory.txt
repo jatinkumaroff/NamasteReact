@@ -1,0 +1,107 @@
+MONOLITH AND MICROSERVICE ARCHITECTURE:
+    MONOLITH: big big project with chunks: API, UI, 
+    MICROSERVICE: diff small services: backend, ui, authentication, db , sms etc..
+            -this is called seperation of concerns
+            -all teams work differently
+            -all services can be written in different language
+            - all these are hosted on differetnt ports and mapped to main domain
+
+==============================================================================================================
+Fetching live data from API and using:
+    -instead of using the hard coded stuff, saved locally , we'll catch data on the fly
+
+    Approaches of fetching data from Backend:
+        1. as soon as our page loads => call api => fetch data => render ui
+We USE  2. as soon as our page loads => render ui skeleton => call api => re-render ui with api data
+
+
+====================================================================================================================
+2 HOOK:
+    useEffect(arg1, arg2) : 
+        arg1-> callback function : ()=>{} 
+            gets called just after render is done
+        arg2-> dependency array  : []
+
+    for doing something after rendering the component
+
+    useEffect(()=>{
+
+    },[]);
+
+
+    THIS WILL BE USED:
+        after the body is rendered   =>      we will fetch data   =>   update the ui
+
+Fetch Function: used to fetch data, given by browsers::::: this willbe called insdie useEffect
+
+    const fetchData= ()=>{
+        const data= fetch("api")
+    }
+
+
+
+    DO THIS FETCHING PART, FROM SOME OTHER WEBSITE PICKUP THE LIVE DATA API AND USE THAT
+
+
+====================================================================================    
+    Shimmer UI:
+        showing fake/empty cards until data is loaded
+
+        condition will be :::: after deleting the mock data, until the live data gets set into the listOfRestaurants
+            (listOfRestaurants.length===0){
+                //logic for Shimmer ui
+            }
+
+            shimmer component:
+
+
+    #############USING THE ABOVE condition IS WHAT WE CALL CONDITIONAL RENDERING 
+=================================================================================================
+    LOGIN <=> LOGOUT BUTTON:
+
+        Changes on click
+            LOCAL VARIABLE: 
+                on using local variable let btnName , changes on clicking login<-> logout , it doesnt changes
+                because component does not reload, so UI has no change
+
+            STATE VARIABLE:
+                use useState to change this
+                always use setNameButton => after doing this:
+
+        ######## CHANGING STATE RETURNS THE WHOLE COMPONENT FUNCTION
+                 THEN REACT COMPARES OLD VS NEW VIRTUAL DOM, 
+                 AND UPDATES ONLY THE DIFF IN REAL DOM
+
+                 THIS IS CALLED RECONCILLIATION  ####################3
+
+                 T0-CLARIFY-THE-ABOVE : COMPONENT FUNCTION RUNS FULLY, but the DOM is not FULLY changes!!!
+
+
+                 RENDERING != DOM MANIPULATION
+
+==================================================================================================
+SEARCH FUNCTIONALITY:
+    in body component
+        search bar and search button
+
+    1. get value entered in the search box, how?:
+        by using a local state variable and using value attribute
+
+        const [searchText, setSearchText]= useState(""); -> initialy search value nothing
+        value={searchText}  ===  ""
+
+        #########IMP####
+        this wont work , because here, the value of search is tied to the variable!
+             <input type="text" className="search-box" value={searchText}/>
+
+            so we need an onChange handler: 
+                onChange={(e) => {
+                    setSearchText(e.target.value);          THIS WONT CHANGE value variable, but searchText
+                }}                          
+
+            HERE WE ARE RE RENDERING THE WHOLE COMPONENT ON EACH CHARACTER TYPING!!!!!
+
+            
+    2. on clicking button, get the searchtext value and filter according to that:
+
+        getting search text value:

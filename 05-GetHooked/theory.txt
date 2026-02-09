@@ -1,37 +1,94 @@
-HOOKS IN REACT
+REATC HOOKS
+ done till dynamic loading of stuff from live zomato api
 
-    make seperate file for eveery component
-    component files are named exactly as component name 
+ now onto HOOKS
 
-    exporting a component from the file we are using:
-        export default ComponentName;
 
-    do not keep hard-coded links/strings in component files
-    create anotehr file called utils for it
 
-    export/import type:
-        default:
-            import - import name from "path"
-            export - export default name;
+IMPORTINGS/EXPORTING files/data :
 
-        named:
-            import - import {name1} from "path"
-            export - export const name1 = ...
-                     export const name2 = ...
+    1. default:
+        import: import data from {path};
+        export: export default data;
+    2. named:
+        import: import {data} from {path};
+        export: export const data (while declaration) ;
 
-        what i use(from node)
-            import - const {name1} - reuqie("path)
-            export - module.exports = {name1, name2};
+    YES, WE CAN EXPORT BOTH DEFAULTA ND NAMED FROM THE SAME FILE AT A TIME AND USE BOTH ANYWHERE
+    COMPLETELY DIFFERENT AND DONT CAUSE ERROR
 
-----------------------------------------------------------------------------------------------------------------
-CLICK- HANDLER:
-    now we'll add a button to search top rated res(4 star +) with functionality to filte
+ DO NOT EXPORT COMPONENTS AS FUNCTION , JUST export default Header
+ while import/export , alwaya suse name : /Header , not /Header.js or Header.jsx
+ as changinf name later can cause trouble
 
-    - create a button for it first
-    - add EVEN HANDLER -> ON CLICK:
-        attribute: 
-            onClick={
-                ()=>{
-                    console.log("button clicked")
-                }
-            }
+UTILS:=> src/utils 
+    wherever there is hard coded data, use thiss.
+    like for LOGO_URL etc
+
+FEATURE:
+
+ Event Listener:
+    1. onClick:    
+        button tag with attribute onClick{()=>{ ""console.log("button clicked")}}
+    2. onMouseOver:    
+        button tag with attribute onClick{()=>{ ""console.log("button clicked")}}
+
+
+    Create div( filter ) and in that create a buttona and use onClick attribute on that
+    we will be using HOOKS using this thing only
+
+    Filtering use arr.filter() , we will get filtered data as new array
+    and to load that , we will use HOOKS
+
+Filtering Logic:
+    Filtering is pretty simple:
+
+    if resData is data, just use:
+    resData - resData.filter((res)=>{
+        res.info.rating.aggregate_rating > 4
+    })
+
+    returns true is >4, its included // else excluded
+
+    Take data from the file, use let to store it locally in body, then only you can filter them out..
+
+    now we can get the filtered list locally too
+    data changes in js variable , but UI does not update
+
+NOW COMES THE UI Updation Part:
+    instead of NORMAL JS variable, we will use REACT STATE VARIBALE!!
+
+    REACT HOOK IS THAT STATE VARIBALE -> JS FUNCTION AT THE CORE
+
+    -useState()            *********************
+        generates superpowerful react variables:
+
+    -useEffect()           *********************
+
+
+useState():
+    -import {useState} from "react"
+    - creating state varibale for maintaining state of component 
+    - for now we will use locla state varibale inside body
+
+    USAGE: const [data] - useState( 1{defaultValue} , )
+    and use this data variable normally
+
+
+    for updation, we need another varibale inside the array of declaration:
+    const [data, setData] - useState(defaultValue ->which will be in data)
+    data->  initial , setData -> after state changes
+
+ we are array destructuring above, the core thing is:
+    const arr=useState(defaultValue);
+    const data - arr[0]; //default Values
+    const setData - arr[1]; //function to update the state according to new data passed
+
+          now in onClick: we use this setData as a function and pass in args as ==> the new data that we need to be in that
+          for example. save the filtered list in a new variable names updatedData
+      
+          and use setData(updatedData) => this will replace things in "data" =with=> "updatedData"
+          and reload the page
+      
+          WHENVER STATE VARIABLE UPDATES , REACT RE-RENDERS THE COMPONENT
+

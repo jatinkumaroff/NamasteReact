@@ -123,3 +123,6 @@ RESUING THE SAME COMPONETN IS HARD CODING, TO MAKE IT DYNAMIC:
     now onto making dynamic cards:
         1. create complete component of the resCard fully dynamic as the name
         2. now map over the live data and laod it in the page
+
+
+        done !!!

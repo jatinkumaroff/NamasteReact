@@ -1,0 +1,16 @@
+Reconsiliation Algorithm (React Fiber)  => finds DIFF and UPDATES DOM
+
+    if form 7 card, we're filtering to 3 cards our UI changes
+    
+    from the DOM, react creates "VIRTUAL DOM" ie representation of actual DOM   
+                (actual DOM = object that is being rendered)
+
+
+DIFF ALGORITHM:
+    finds out difference bw 2 virtual DOMS
+        difference in previous virtual DOM(7 elements) and new virtual DOM(3 elements)
+        and then it updates the actual DOM
+
+
+Q. WHY REACT IS FAST?
+A. "USES INCREMENTAL RENDERING"

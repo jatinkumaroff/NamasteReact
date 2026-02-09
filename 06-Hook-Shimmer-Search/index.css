@@ -42,3 +42,24 @@
 .res-img {
   width: 100%;
 }
+
+.shimmer-cards{
+  margin: 20px;
+  width: 200px;
+  height: 350px;
+  background-color: gray;
+}
+
+.shimmer-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.login{
+  padding:  20px;
+}
+
+.filter{
+  display: flex;
+}
+
