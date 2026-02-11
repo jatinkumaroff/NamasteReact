@@ -1,5 +1,6 @@
 import RestrauntCard from "./RestrauntCard";
-import FETCH_URL from "../../liveData";
+import {FETCH_URL} from "../utils/constants";
+import {COARS_PROXY} from "../utils/constants";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 
@@ -14,7 +15,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(FETCH_URL);
+    const data = await fetch(COARS_PROXY + FETCH_URL);
     const json = await data.json();
     setFullList(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -26,7 +27,7 @@ const Body = () => {
     );
   };
 
-  if (resData.length === 0) {
+  if (resData.length == 0) {
     return (
       <div>
         <div className="filter">

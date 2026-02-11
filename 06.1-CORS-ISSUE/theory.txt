@@ -1,0 +1,8 @@
+USE CORS PROXY , TO BYPASS CORS ERROR ON PROD
+
+ paste => https://corsproxy.io/? before the url and thats it!
+
+ in constants : 
+    COARS_PROXY = https://corsproxy.io/?
+
+    we use in fetch then => COARS_PROXY + FETCH_URL;

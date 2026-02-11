@@ -1,4 +1,6 @@
-const FETCH_URL="https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.711971&lng=76.767944&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+// const FETCH_URL="https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.711971&lng=76.767944&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";       //CHANDIGARH SECTOR 33
+//  
+const FETCH_URL="https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6377503&lng=77.2837947&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";   //DELHI, LAXMI NAGAR
 
 export default FETCH_URL;
 // const listData= [
