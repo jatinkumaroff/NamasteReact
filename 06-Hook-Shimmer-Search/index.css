@@ -3,7 +3,6 @@
   justify-content: space-between;
   border: 1px solid black;
 }
-
 .logo {
   width: 200px;
 }
@@ -21,45 +20,43 @@
   padding: 10px;
 }
 
-.res-card:hover{
-    border: 2px solid gray;
-    cursor: pointer;
+.res-card:hover {
+  border: 2px solid gray;
+  cursor: pointer;
 }
 
 .res-card {
   padding: 5px;
   width: 200px;
- 
 }
 .search {
   padding: 10px;
 }
 
-.res-container{
-    display: flex;
-    flex-wrap: wrap;
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 .res-img {
   width: 100%;
 }
 
-.shimmer-cards{
+.shimmer-cards {
   margin: 20px;
   width: 200px;
   height: 350px;
   background-color: gray;
 }
 
-.shimmer-container{
+.shimmer-container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.login{
-  padding:  20px;
+.login {
+  padding: 20px;
 }
 
-.filter{
+.filter {
   display: flex;
 }
-
