@@ -1,0 +1,55 @@
+Reconsiliation Algorithm (React Fiber)  => finds DIFF and UPDATES DOM
+
+    if form 7 card, we're filtering to 3 cards our UI changes
+    
+    from the DOM, react creates "VIRTUAL DOM" ie representation of actual DOM   
+                (actual DOM = object that is being rendered)
+
+
+DIFF ALGORITHM:
+    finds out difference bw 2 virtual DOMS
+        difference in previous virtual DOM(7 elements) and new virtual DOM(3 elements)
+        and then it updates the actual DOM
+
+
+Q. WHY REACT IS FAST?
+A. "USES INCREMENTAL RENDERING"
+
+Q. What is React Fiber
+A. REACT FIBER IS RECONCILLIATION ALGORITHM WHICH USES DIFFING AND UPDATES ONLY CHANGED COMPONENTS IN DOM
+
+
+
+       STATE VARIABLE:
+                use useState to change this
+                always use setNameButton => after doing this:
+
+        ######## CHANGING STATE RETURNS THE WHOLE COMPONENT FUNCTION
+                 THEN REACT COMPARES OLD VS NEW VIRTUAL DOM, 
+                 AND UPDATES ONLY THE DIFF IN REAL DOM
+
+                 THIS IS CALLED RECONCILLIATION  ####################3
+
+                 T0-CLARIFY-THE-ABOVE : COMPONENT FUNCTION RUNS FULLY, but the DOM is not FULLY changes!!!
+
+
+                 RENDERING != DOM MANIPULATION
+
+                 
+
+06, Search Filtering:
+  #########IMP####
+        this wont work , because here, the value of search is tied to the variable!
+             <input type="text" className="search-box" value={searchText}/>
+
+            so we need an onChange handler: 
+                onChange={(e) => {
+                    setSearchText(e.target.value);          THIS WONT CHANGE value variable, but searchText
+                }}                          
+
+            HERE WE ARE RE RENDERING THE WHOLE COMPONENT ON EACH CHARACTER TYPING!!!!!
+
+            
+
+
+########################## USE HOOKS INSIDE OF COMPONENT FUNCTIONS ONLY ##########################

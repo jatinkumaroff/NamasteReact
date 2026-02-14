@@ -1,0 +1,7 @@
+HIGHER ORDER COMPONENTES:
+   components that take a component as input and give component as output
+
+   like in promoted restaurant cards, there is a badge on the corner, it is through these HIGHER ORDER components
+   take card as i/p and give card+ribbon as o/p 
+
+   

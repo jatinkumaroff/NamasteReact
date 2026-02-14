@@ -1,0 +1,36 @@
+STYLING(CSS) -> Using a CSS Framework (Tailwind css here)
+
+ SASS -> Syntatically Awesome style sheets -> advanced CSS          not scalable
+ Styled Components -> used in industry                              scalable
+
+ we will use tailwind installed and not using cdn
+    1. install tailwind using official site (postcss is something that transforms css with js, not out concern , tailwind uses it in backend)
+    2. 
+
+
+
+    in case of tailwind, if a class is not present, then :
+     w-[200px] = even if 200px is not available, it will give hard coded 200px
+
+   parcel dont import the whole tailwind css, only includes the attributes that are used
+   this keeps bundle size small, making it ultra lightweight
+
+   whatever we write as tailwind styling are used as classes, like px-2, at backend is a class, that goes like:
+   px-2{
+      padding: 2rem 0;
+   }
+
+   now only these classes are included and not the whole lot of availble classes, but just used
+   (this inclusion of not used things is called BLOATING)
+
+
+DARK MODE FEATURE:
+
+    dark:abcd , abcd is performed when mode is dark
+
+
+
+CONDITIONAL STYLING:
+
+ for using prop1 and prop2 on hover, :
+ <.....  hover:prop1 hover:prop2>         => mentiion differently

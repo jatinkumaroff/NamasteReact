@@ -1,0 +1,120 @@
+HOOKS INTERNALS:
+   
+   useEffect(callback, ?optional dependency array);      => ( ()=>{ } , ?[] )
+      
+    if optional arg:
+      is not mentiond : => useEffect is called on every render
+      is an empty arr= []: => useEffect is called on just inital render    
+      contains a var -> [SearchBTN]=> called when this SearchBTN updates, we can have any number of args in []
+
+   useState(initial data) =>
+
+      can be created inside the functional component only and not outside it
+      used as local state variable
+      always declared at the top , to avoid undefined conflict
+      never declare it insdie if-else/loops/function statements
+
+=========================================================================================
+ROUTING::
+
+   Routing Configuration:
+      first step before routing , inside App.js 
+      using createBrowserRouter from react-router-dom
+
+   takes array of objects with 2 things: [{1,2} , {1,2}]
+    const appRouter = createBrowserRouter([
+      {
+         path:'/',
+         element: <AppLayout/>,    -> if path is this, load this
+      },
+      {
+         path:'/about',
+         element: <About/>,    -> if path is this, load this
+      }
+    ])
+
+    we import {createBrowserRouter ,RouterProvider} from "react-router-dom";
+    this RouterProvider provides the routing configuration that we use to render pages
+    by:
+      root.render(<RouterProvider router={appRouter} />);
+
+=============================================================================================================
+CUSTOM ERROR PAGE:      -< useRouteError HOOK
+   on unknown route or in case of error
+      just add errorElement in the path: '/' 
+      {
+         path:'/',
+         element: <AppLayout/>,    -> if path is this, load this
+         errorElement: <Error/>
+      },
+
+   Customisation:
+      HOOK -> useRouteError , import it in error page
+      now showing details or error
+
+      in the error.js-> Error componetn function:
+         const err = useRouteError();   -> RETURNS WHAT ERROR WE ENCOUNTERED AS OBJECT , SAVED IN err
+         console.log(err)
+
+         then inside return , give the err 
+         AND USE:   <h3>{err.status}: {err.statusText} </h3>
+   
+===============================================================================================
+CHILDREN ROUTES:
+   we can change the body but we need to keep the HEADER , FOOTER and some other stuff intact. so we ened children routes of AppLayout:
+
+   in the createBrowserRouter({
+      inside a path, add the children:[] arg and enter the path,element pairs as we did before
+      and use <Outlet/> tag in the AppLayout
+
+      the children according to the path will come in place of Outlet component
+   })
+   Outlet , children array , path 
+
+   BY USING OUTLET-CHILDREN stuff
+
+   we will just re render the Children and not the whole page
+
+
+====================================================================================
+LINK TAG:
+   instead of anchor tag, use the link tag , it doesnot refresh whole page
+   in react , alway use link tag
+
+   <Link to="/path"> CONTACT US <Link/>
+
+
+   thus react is a single page application, as wiht react we dont refresh the whole page, we just use routes
+
+
+      TPYES OF ROUTING IN WEB APPS:
+
+         1. what we do here is CLIENT SIDE ROUTING .we just call APIs , we're not fetching a new page
+         2. SERVER SIDE ROUTING - when we make network calls 
+===================================================================================
+DYNAMIC ROUTING (DIFFERENT PAGES FOR DIFFERENT RESTAURANTS):
+   restaurantmenu page -> with dynamic data of each restaurant
+
+
+   path:"/restaurants/:resID",   => dynamic url
+   element: <RestaurantMenu/>
+
+   CAN DO THE MENU PAGE INDEPENDENTLY, 
+      in swiggy loading res menu pages, only difference is resId, that we need to pass through the React's router as variable and this will be used while calling APIs woth the specific resId
+
+   Procedure:
+     IN RestaurantMenu-
+      HOOK => useParams from "react-router-dom"
+      Fetched the params in the route, resId in this case
+
+      GIVEs object, destructure it and use in the fetch APIs
+
+
+=================================================================================================================================
+Making Restaurant List Cards clickable:
+
+   use Link - to property and link it by fetching the restaurant id and using it with /restaurant + {resId}
+
+   then it should load the specific Restaurant's Menu Page
+
+push to git only affter completing this 

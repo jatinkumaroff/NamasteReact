@@ -1,0 +1,56 @@
+Custom Hooks
+   Special JS Functions, utility/helper functions
+
+   asbtracting the whole logic into a file and just using a hook that directly returns required data
+   example, 
+   const data = useRestrauntMenu(resId) Hook -> just give the data and logic is in another file
+
+   Creating:
+      inside utils, new file for each , starts with use......()
+
+      Use-> if user is offline, on clicking anything just give-> "you are offline"
+
+   RULES/FLOW to write a hook =>
+      -finalise input & output
+
+
+==================================================================================================
+Single responsibility principle => Each component must have just single responsibility, if there are more break it into modules
+      makes code -> reusable, maintainable , testable
+      keeping components as light as possible
+
+   example , we have useParams inside RestrauntMenu, this component should just display the data and not fetch and all things
+
+
+
+============================================================================================
+OPTIMIZATION:::::
+
+
+   bundlers(parcel,vite etc) compress whole code into 1html, 1 js and 1 css file. 
+   for large files, this js can be very big if the wite has many components , we dotn need to load all at once
+   so we split and load just the required part ,which is called : 
+   CHUNKING    ,  LAZY LOADING   ,  CODE SPLITTING    ,  DYNAMIC BUNDLING   ,    ON DEMAND LOADING
+   that is we need to do splitting of js files that a bundler gives
+
+   Logical bundling is what we need to do, ie give enough fetures for a bundle to run everything required
+      ex for swiggy-> bundles according to [food, instamart, dineout, ticket-booking etc..]
+
+   WE DO IT BY:
+      not importing directly-
+         import Stuff from "path-of-stuff"
+      we use lazy , lazy is named import from react
+         const stuff = laxy(()=>   import("path-of-stuff")  )
+
+-------------------------------------------------------------------------------------------------------
+   SUSPENSE
+   LOADING LAZY COMPONENTS:
+
+      when we go to some component which is to be lazy loaded, browser calls it after clicking and it takes some time for the code to come 
+      now in meantime, react tries to render the component which is basent at the instacne and thus throw error
+      to resolve this, we use Suspend(import named from react)
+      we wrap lazy imported componend inside suspense:
+         <Suspense fallback={<Shimmer/>}>  <ComponentToBeLoaded>  <Suspense/>
+
+         and in the suspense, we need to give a fallback attribute, that is loading screen rendered in meantime before getting the lazy component.
+      ##############################################################################
