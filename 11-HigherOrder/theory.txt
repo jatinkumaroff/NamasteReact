@@ -4,4 +4,61 @@ HIGHER ORDER COMPONENTES:
    like in promoted restaurant cards, there is a badge on the corner, it is through these HIGHER ORDER components
    take card as i/p and give card+ribbon as o/p 
 
-   
+   there was no such thing in api rn, so i created logic - if resId%3==0 - treat it as promoted
+
+   MADE THE CARDS CLICKABEL AND INSERTED THE LINKS TO DIRECT SWIFFY WEBSITE, NOW JUST NEED TO CREATE MENU PAGE, TAKE THE LINK AND FETCH MENU AND SHOW IN THAT PAGE INSTEAD OF OPENING DIRECTLY THE SWIGGY PAGE
+
+
+   WHILE USING HIGHER ORDER COMPONENT, PASS THE PROPS INSIDE WITH THE CARD 
+   AND IN CALLING THE ORIGINAL COMPONENT, PASS DESTRUCTURED OBJECT/DATA
+   LIKE:    {...props}
+
+   REST REMAINS THE SAME
+
+===================================================================================================
+
+PROPS DRILLING:
+
+   if parent=> child 1=> grandchild 1
+
+   gc1 needs some data present in parent , but child dont need it, the data still has to pass through it
+   this is props drilling. 
+
+   we can use context , global place to keep global data, accessible everywhere. 
+   ex- loggedInUser, videoplaying in video app, darkTheme
+
+
+   create seperate js files for every such info, like for all the user info => UserContext.js
+   using-> createContext
+   inside it:
+
+      const UserContext= createContext({
+         loggedInUser:"default value "
+      })    => then default export
+
+
+   ACCESING IT FROM ANYWHERE
+   -> using a hook ie  useContext 
+      const data= useContext(UserContext)
+
+      it acts as normal object, destructure it and use it anywhere
+
+
+   -> using <UserContext.Consumer>   {({loggedInUser})=>(here any html code)}  </UserContext.Consumer>
+
+   Modifying context varibale:
+      using <UserContext.Provider>     </UserContext.Provider>
+
+
+      wrap the whole app inside it and pass a prop inside it :
+         <UserContext.Provider value={{loggedInUser:"whateverwe want"}}>
+
+      if we wrap just a Headder component inside this:
+      -the Header will take the new value
+      -other places it will use default value
+
+      we can also use nested <UserContext.Provider>, one inside another , prefectly valid
+
+   CHECK IT:
+   if im using a useContext for a variable abc, then while passing it in the <UserContext.Consumer> can i also pass
+   other variables (different than abc)

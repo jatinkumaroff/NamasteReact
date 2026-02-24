@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-
-
-
+import { urlMenuId } from "../../liveData";
 /* custom hook to fetch the data:=> 
    instead of:
      const params= useParams();
@@ -16,9 +14,18 @@ import { useParams } from "react-router-dom";
     }
 */
 
-
+// {resData.map((restraunt) => (
+        //   <RestrauntCard key={restraunt.info.id} resData={restraunt} />
+        // ))}
 
 const RestrauntMenu = () => {
+  const restId="";
+  const fetchMenu=async ()=>{
+    const data=fetch(urlMenuId+restId)
+  }
+
+
+
   return (
     <div>
       <h1>MENU PAGE</h1>

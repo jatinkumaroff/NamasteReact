@@ -2,7 +2,6 @@ import RestrauntCard from "./RestrauntCard";
 import FETCH_URL from "../../liveData";
 import { useState, useEffect, lazy } from "react";
 import Shimmer from "./Shimmer";
-
 import RestrauntMenu from "./RestaurantMenu";
 import useOnlineStatus from "../utils/useOnlineStatus";
 // const useOnlineStatus = lazy(() =>  import("../utils/useOnlineStatus"));

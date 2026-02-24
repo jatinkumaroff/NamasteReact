@@ -1,0 +1,12 @@
+{
+  "name": "11-higherorder",
+  "version": "1.0.0",
+  "description": "sadfdadw",
+  "scripts": {
+    "start": "npx parcel ./index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

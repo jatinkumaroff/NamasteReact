@@ -1,0 +1,7 @@
+REDUX :
+
+   we create a store , we store data there and retreive from there
+
+   2 lib-> react-redux (old) , redux-toolkit (new)
+
+   build cart 
